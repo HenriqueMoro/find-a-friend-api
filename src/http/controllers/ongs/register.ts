@@ -11,7 +11,7 @@ export async function register(request: FastifyRequest, reply: FastifyReply) {
     person_in_charge: z.string(),
     phone: z.string(),
     country: z.string(),
-    uf: z.string().max(2),
+    uf: z.string().max(2).toUpperCase(),
     city: z.string(),
     district: z.string(),
     street: z.string(),

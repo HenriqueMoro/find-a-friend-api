@@ -31,4 +31,18 @@ export class PrismaOngsRepository implements IOngsRepository {
 
     return ong
   }
+
+  async findManyByCityAndUf(city: string, uf: string) {
+    const ongs = await prisma.ong.findMany({
+      select: {
+        id: true,
+      },
+      where: {
+        city,
+        uf,
+      },
+    })
+
+    return ongs
+  }
 }

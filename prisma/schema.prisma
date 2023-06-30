@@ -24,4 +24,17 @@ model Ong {
   address_number   Int
   password_hash    String
   created_at       DateTime @default(now())
+  Pet              Pet[]
+}
+
+model Pet {
+  id          String @id @default(uuid())
+  name        String
+  description String
+  age         String
+  size        String
+  energy      String
+
+  ong    Ong    @relation(fields: [ong_id], references: [id])
+  ong_id String
 }

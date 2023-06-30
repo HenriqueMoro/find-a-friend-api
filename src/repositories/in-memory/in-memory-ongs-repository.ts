@@ -45,4 +45,8 @@ export class InMemoryOngsRepository implements IOngsRepository {
     this.items.push(ong)
     return ong
   }
+
+  async findManyByCityAndUf(city: string, uf: string): Promise<any[]> {
+    return this.items.filter((ongs) => ongs.city === city && ongs.uf === uf)
+  }
 }
